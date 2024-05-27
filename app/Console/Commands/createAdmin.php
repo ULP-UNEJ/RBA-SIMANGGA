@@ -32,6 +32,8 @@ class createAdmin extends Command
             "password" => bcrypt("password"),
         ]);
 
+        $admin->assignRole("Admin");
+
         $this->info("Admin created successfully");
     }
 }
