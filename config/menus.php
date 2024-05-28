@@ -16,7 +16,7 @@ return [
             "sub" => [
                 [
                     "title" => "Peran & Hak Akses",
-                    "url" => "setelan/peran",
+                    "url" => "setelan/peran-hak-akses",
                     "icon" => "ti ti-lock",
                     "permission" => "roles.web.index",
                 ]

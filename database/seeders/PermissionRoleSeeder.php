@@ -30,10 +30,11 @@ class PermissionRoleSeeder extends Seeder
     private function setPermission($resource, $guard = "web")
     {
         Permission::findOrCreate("{$resource}.{$guard}.index");
+        Permission::findOrCreate("{$resource}.{$guard}.show");
         Permission::findOrCreate("{$resource}.{$guard}.create");
         Permission::findOrCreate("{$resource}.{$guard}.store");
         Permission::findOrCreate("{$resource}.{$guard}.edit");
         Permission::findOrCreate("{$resource}.{$guard}.update");
-        Permission::findOrCreate("{$resource}.{$guard}.delete");
+        Permission::findOrCreate("{$resource}.{$guard}.destroy");
     }
 }
