@@ -39,7 +39,8 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="title">Peran</label>
-                            <select name="role" class="form-control @error('role') is-invalid @enderror">
+                            <select name="role" class="form-control @error('role') is-invalid @enderror"
+                                onchange="showFakultasNameField()">
                                 <option value="">Pilih Peran</option>
                                 @foreach ($roles as $role)
                                     <option value="{{ $role->name }}"
@@ -48,6 +49,15 @@
                                 @endforeach
                             </select>
                             @error('role')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Nama Fakultas</label>
+                            <input type="text" class="form-control @error('nama_fakultas') is-invalid @enderror"
+                                id="title" name="nama_fakultas" value="{{ $user->Fakultas->nama ?? '' }}" />
+                            @error('nama_fakultas')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
@@ -70,4 +80,20 @@
             )
         </script>
     @endif
+    <script>
+        $(document).ready(function() {
+            showFakultasNameField()
+        })
+
+        function showFakultasNameField() {
+            const role = document.querySelector('select[name="role"]').value;
+            const fakultasNameField = document.querySelector('input[name="nama_fakultas"]').closest('.mb-3');
+
+            if (role === 'Fakultas') {
+                fakultasNameField.classList.remove('d-none')
+            } else {
+                fakultasNameField.classList.add('d-none')
+            }
+        }
+    </script>
 @endpush

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FakultasController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PeranHakAksesController;
 use Illuminate\Support\Facades\Route;
@@ -35,8 +36,15 @@ Route::middleware('auth')->group(function () {
         Route::delete('peran-hak-akses/{role}', [PeranHakAksesController::class, 'destroy'])->name('peran-hak-akses.destroy');
     });
 
+    // Fakultas
+    Route::prefix('fakultas')->name('fakultas.')->group(function () {
+        // Profil Fakultas
+        Route::get('/profil', [FakultasController::class, 'index'])->name('profil.index');
+    });
+
     // Master Data
     Route::prefix('master-data')->name('master-data.')->group(function () {
+        // Pengguna
         Route::get('pengguna', [PenggunaController::class, 'index'])->name('pengguna.index');
         Route::get('pengguna/create', [PenggunaController::class, 'create'])->name('pengguna.create');
         Route::post('pengguna', [PenggunaController::class, 'store'])->name('pengguna.store');

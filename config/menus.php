@@ -9,6 +9,24 @@ return [
             "permission" => "",
         ],
         [
+            "title" => "Fakultas",
+            "url" => "fakultas/*",
+            "icon" => "ti ti-school",
+            "permission" => ["fakultas.web.index", "prodi.web.index"],
+            "sub" => [
+                [
+                    "title" => "Profil Fakultas",
+                    "url" => "fakultas/profil",
+                    "permission" => "fakultas.web.index",
+                ],
+                [
+                    "title" => "Program Studi",
+                    "url" => "fakultas/program-studi",
+                    "permission" => "prodi.web.index",
+                ]
+            ]
+        ],
+        [
             "title" => "Master Data",
             "url" => "master-data/*",
             "icon" => "ti ti-book",
@@ -17,9 +35,8 @@ return [
                 [
                     "title" => "Pengguna",
                     "url" => "master-data/pengguna",
-                    "icon" => "ti ti-user",
                     "permission" => "users.web.index",
-                ]
+                ],
             ]
         ],
         [
