@@ -22,6 +22,7 @@ class PermissionRoleSeeder extends Seeder
 
         // Create Permission
         $this->setPermission("roles");
+        $this->setPermission('users');
 
         // Assign Permission to Role
         $admin->givePermissionTo(Permission::all());

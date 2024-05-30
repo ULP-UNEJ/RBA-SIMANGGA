@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PeranHakAksesController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,5 +33,16 @@ Route::middleware('auth')->group(function () {
         Route::post('peran-hak-akses', [PeranHakAksesController::class, 'store'])->name('peran-hak-akses.store');
         Route::put('peran-hak-akses/{id}', [PeranHakAksesController::class, 'update'])->name('peran-hak-akses.update');
         Route::delete('peran-hak-akses/{role}', [PeranHakAksesController::class, 'destroy'])->name('peran-hak-akses.destroy');
+    });
+
+    // Master Data
+    Route::prefix('master-data')->name('master-data.')->group(function () {
+        Route::get('pengguna', [PenggunaController::class, 'index'])->name('pengguna.index');
+        Route::get('pengguna/create', [PenggunaController::class, 'create'])->name('pengguna.create');
+        Route::post('pengguna', [PenggunaController::class, 'store'])->name('pengguna.store');
+        Route::get('pengguna/{user}', [PenggunaController::class, 'show'])->name('pengguna.show');
+        Route::get('pengguna/{user}/edit', [PenggunaController::class, 'edit'])->name('pengguna.edit');
+        Route::put('pengguna/{user}', [PenggunaController::class, 'update'])->name('pengguna.update');
+        Route::delete('pengguna/{user}', [PenggunaController::class, 'destroy'])->name('pengguna.destroy');
     });
 });

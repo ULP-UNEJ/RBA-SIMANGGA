@@ -9,6 +9,20 @@ return [
             "permission" => "",
         ],
         [
+            "title" => "Master Data",
+            "url" => "master-data/*",
+            "icon" => "ti ti-book",
+            "permission" => ["users.web.index"],
+            "sub" => [
+                [
+                    "title" => "Pengguna",
+                    "url" => "master-data/pengguna",
+                    "icon" => "ti ti-user",
+                    "permission" => "users.web.index",
+                ]
+            ]
+        ],
+        [
             "title" => "Setelan",
             "url" => "setelan/*",
             "icon" => "ti ti-settings",
